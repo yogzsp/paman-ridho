@@ -24,6 +24,7 @@ Route::get('/login', [AuthController::class,"showLogin"])->name("login-page");
 Route::get('/signup',[AuthController::class,"showSignup"])->name("signup-page");
 Route::post('/signup',[AuthController::class,"createAccount"])->name("create-account");
 Route::post('/login',[AuthController::class,"login"])->name("login");
+Route::get('/logout',[AuthController::class,"logout"])->name("logout");
 
 // Dashboard
 Route::get('/dashboard',[DashboardControllers::class,"showDashboard"])->name("home-dashboard");

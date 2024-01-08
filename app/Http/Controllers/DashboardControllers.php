@@ -46,7 +46,7 @@ class DashboardControllers extends Controller
                 "url"=>$urlWithoutDomain    
             ]);
         }catch(\Exception $e){
-            return response()->json(['error' => $e->getMessage()]);
+            // return response()->json(['error' => $e->getMessage()]);
         }
     }
 
@@ -89,7 +89,7 @@ class DashboardControllers extends Controller
             return redirect()->route('list-items',["id"=>0])->with('success', 'Berhasil menambahkan kategori');
         } catch (\Exception $e) {
             // Handle error lainnya
-            return response()->json(['error' => $e->getMessage()]);
+            // return response()->json(['error' => $e->getMessage()]);
         }
     }
 
@@ -109,7 +109,7 @@ class DashboardControllers extends Controller
                 return redirect()->route("home-dashboard")->with("success","Berhasil menghapus data");
             }
         }catch(\Exception $e){
-            return response()->json(['error' => $e->getMessage()]);
+            // return response()->json(['error' => $e->getMessage()]);
         }
 
         return redirect()->route("home-dashboard")->with("error", "Terjadi kesalahan pada saat eksekusi!");
@@ -124,7 +124,7 @@ class DashboardControllers extends Controller
                 return redirect()->route("list-items",["id"=>0])->with("success","Berhasil menghapus data");
             }
         }catch(\Exception $e){
-            return response()->json(['error' => $e->getMessage()]);
+            // return response()->json(['error' => $e->getMessage()]);
         }
 
         return redirect()->route("list-items",["id"=>0])->with("error", "Terjadi kesalahan pada saat eksekusi!");

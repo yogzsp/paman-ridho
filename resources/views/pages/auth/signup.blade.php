@@ -14,19 +14,19 @@
               </div>
             @endif
             <div class="card-header text-center pt-4 bg-primary text-white fw-bold frus">
-              <h5>Register Account</h5>
+              <h5>Install Dashboard</h5>
             </div>
             <div class="card-body m-3 fpop fw-900">
               <form role="form" method="POST" action="{{route("create-account")}}">
                 @csrf
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Name" aria-label="Name" name="name">
+                  <input type="text" class="form-control" placeholder="Name" aria-label="Name" name="name" required>
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="username">
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="username" required>
                 </div>
                 <div class="mb-3">
-                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password">
+                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password" required min="6">
                 </div>
                 <div class="form-check form-check-info text-start">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked="">

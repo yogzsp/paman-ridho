@@ -8,6 +8,11 @@
                 {{session('error')}}
               </div>
             @endif
+            @if(session('success'))
+              <div class="alert alert-success m-0">
+                Akun sukses di bikin
+              </div>
+            @endif
             <div class="card-header text-center pt-4 bg-primary text-white fw-bold frus">
               <h5>Login Account</h5>
             </div>

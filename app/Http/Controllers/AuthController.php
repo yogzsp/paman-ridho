@@ -11,13 +11,28 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    
     public function showLogin(){
-        return view('pages.auth.login');
+        if (Auth::check()) {
+            return redirect('/dashboard');
+        }
+        $checkAccount = User::all();
+        if(count($checkAccount)>0){
+            return view('pages.auth.login');
+        }else{
+            // return view('pages.auth.signup');
+            return redirect()->route("signup-page");
+        }
         // return true;
     }
 
     public function showSignup(){
-        return view('pages.auth.signup');
+        $checkAccount = User::all();
+        if(count($checkAccount)<1){
+            return view('pages.auth.signup');
+        }else{
+            abort(404);
+        }
     }
     
     public function createAccount(Request $request){
@@ -36,7 +51,7 @@ class AuthController extends Controller
             $user->save();
 
             // Response berhasil
-            return redirect()->route('signup-page')->with('success', 'Registration successful');
+            return redirect()->route('login-page')->with('success', 'Registration successful');
         } catch (\Exception $e) {
             // Handle error lainnya
             return redirect()->route('signup-page')->with('error', 'Registration Failed');
